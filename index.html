@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خارج المسار | Out of Track</title>
+    <!-- خطوط جوجل -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* الألوان والهوية البصرية */
+        :root {
+            --bg-color: #efe9d9; 
+            --primary-orange: #FF5722; 
+            --primary-blue: #012169; 
+            --text-dark: #1a1a1a; 
+            --text-muted: #4a4a4a; 
+            --white: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.4);
+            --transition-speed: 0.4s;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.7;
+            scroll-behavior: smooth; 
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* خلفية جمالية متحركة (Agency Vibe) */
+        body::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, rgba(255,87,34,0.08) 0%, rgba(239,233,217,0) 70%);
+            z-index: -1;
+            border-radius: 50%;
+            animation: floatGlow 10s infinite alternate;
+        }
+
+        @keyframes floatGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(5%, 5%) scale(1.1); }
+        }
+
+        a { text-decoration: none; color: inherit; transition: all var(--transition-speed); }
+
+        /* حركة الظهور الاحترافية */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* الهيدر الزجاجي (Glassmorphism) */
+        header {
+            position: fixed;
+            top: 20px;
+            left: 5%;
+            width: 90%;
+            background: rgba(239, 233, 217, 0.7); 
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+            box-sizing: border-box;
+            z-index: 1000;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(1, 33, 105, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .logo-img { height: 50px; cursor: pointer; transition: transform 0.3s; }
+        .logo-img:hover { transform: scale(1.05); }
+
+        nav a {
+            margin-right: 30px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--primary-blue);
+            position: relative;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--primary-orange);
+            bottom: -5px;
+            right: 0;
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+        nav a:hover::after { width: 100%; }
+
+        /* الأقسام العامة */
+        section { padding: 150px 5% 80px; box-sizing: border-box; }
+        
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--primary-blue);
+            font-weight: 900;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 60px;
+        }
+
+        /* القسم الرئيسي (Hero) */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 { 
+            font-size: 4.5rem; 
+            margin-bottom: 20px; 
+            color: var(--primary-blue);
+            font-weight: 900;
+            line-height: 1.2;
+        }
+        
+        .hero p { 
+            font-size: 1.5rem; 
+            color: var(--text-muted); 
+            max-width: 700px; 
+            margin-bottom: 50px; 
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary-orange), #ff784e);
+            color: #fff;
+            padding: 16px 45px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 10px 25px rgba(255, 87, 34, 0.3);
+            transition: all var(--transition-speed);
+        }
+        .btn:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 15px 35px rgba(255, 87, 34, 0.4);
+        }
+
+        /* قسم الأعمال (البطاقات الاحترافية) */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            overflow: hidden;
+            cursor: pointer; 
+            box-shadow: 0 10px 30px rgba(1, 33, 105, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all var(--transition-speed);
+            position: relative;
+        }
+        
+        .project-card:hover { 
+            transform: translateY(-15px); 
+            box-shadow: 0 25px 50px rgba(255, 87, 34, 0.15); 
+            border-color: rgba(255, 87, 34, 0.3);
+        }
+        
+        .img-wrapper {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .project-img-preview {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .project-card:hover .project-img-preview {
+            transform: scale(1.08);
+        }
+
+        .project-info { padding: 30px; text-align: center; }
+        .project-info h3 { margin: 0 0 10px 0; color: var(--primary-blue); font-size: 1.8rem; font-weight: 800; }
+        .project-info p { color: var(--text-muted); font-size: 1.1rem; margin: 0; font-weight: 500;}
+
+        /* نافذة عرض الصور (Modal) */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            left: 0; top: 0; 
+            width: 100%; height: 100%; 
+            background-color: rgba(1, 33, 105, 0.95); /* خلفية كحلية شفافة */
+            backdrop-filter: blur(8px);
+            overflow-y: auto; 
+        }
+        
+        .modal-content-container {
+            margin: 80px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px; 
+            width: 90%;
+            max-width: 900px;
+            animation: slideUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            padding-bottom: 50px; 
+        }
+
+        .modal-content-container img {
+            width: 100%;
+            border-radius: 16px;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        @keyframes slideUp {
+            from {transform: translateY(50px); opacity: 0;}
+            to {transform: translateY(0); opacity: 1;}
+        }
+
+        .close-btn {
+            position: fixed;
+            top: 25px;
+            right: 35px;
+            color: #fff;
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 2001;
+            background: var(--primary-orange);
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(255, 87, 34, 0.4);
+            transition: all 0.3s;
+        }
+        .close-btn:hover { transform: rotate(90deg) scale(1.1); background: #fff; color: var(--primary-orange); }
+
+        /* قسم الواتساب */
+        .whatsapp-section {
+            background: linear-gradient(135deg, var(--white), rgba(255,255,255,0.4));
+            text-align: center;
+            border-radius: 30px;
+            padding: 80px 20px;
+            margin: 50px 5%;
+            box-shadow: 0 15px 40px rgba(1, 33, 105, 0.05);
+            border: 1px solid rgba(255,255,255,0.6);
+        }
+
+        /* أيقونات السوشيال ميديا المدمجة (SVG) */
+        .social-section { text-align: center; padding: 60px 20px 20px; }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--white);
+            border-radius: 50%;
+            box-shadow: 0 10px 20px rgba(1, 33, 105, 0.08);
+            transition: all var(--transition-speed);
+        }
+        
+        .social-icon svg { width: 28px; height: 28px; fill: var(--primary-blue); transition: all 0.3s; }
+        
+        .social-icon:hover { transform: translateY(-8px); background: var(--primary-orange); }
+        .social-icon:hover svg { fill: var(--white); }
+        
+        .wa-icon svg { width: 24px; height: 24px; fill: currentColor; margin-left: 10px; }
+
+        footer { text-align: center; padding: 30px; color: var(--text-muted); font-size: 1rem; font-weight: 500; }
+
+        /* شاشات الجوال */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            header { width: 95%; left: 2.5%; padding: 10px 15px; }
+            .section-title { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- شريط التصفح -->
+    <header>
+        <a href="#hero">
+            <!-- كود للتعامل الذكي مع صيغة الشعار -->
+            <img src="kumo.png" alt="شعار خارج المسار" class="logo-img" onerror="smartImageLoad(this, 'kumo')">
+        </a>
+        <nav>
+            <a href="#hero">الرئيسية</a>
+            <a href="#projects">أعمالنا</a>
+        </nav>
+    </header>
+
+    <!-- الواجهة الرئيسية -->
+    <section id="hero" class="hero">
+        <h1 class="reveal">وكالة خارج المسار</h1>
+        <p class="reveal">نصمم لك متاجر ومواقع تاخذ علامتك التجارية خارج المسار المألوف، وتخلي حضورك الرقمي غير!</p>
+        <a href="#projects" class="btn reveal">شوف أعمالنا</a>
+    </section>
+
+    <!-- قسم الأعمال -->
+    <section id="projects">
+        <h2 class="section-title reveal">أعمالنا</h2>
+        <p class="section-subtitle reveal">اضغط على أي مشروع عشان تشوف تفاصيله</p>
+        <div class="projects-grid">
+            
+            <!-- الفخامة للعود -->
+            <div class="project-card reveal" onclick="openGallery(['alfakhama-1', 'alfakhama-2', 'alfakhama-3', 'alfakhama-4', 'alfakhama-5'])">
+                <div class="img-wrapper">
+                    <img src="alfakhama-cover.png" alt="الفخامة للعود" class="project-img-preview" onerror="smartImageLoad(this, 'alfakhama-cover')">
+                </div>
+                <div class="project-info">
+                    <h3>الفخامة للعود</h3>
+                    <p>تصميم متجر رقمي متكامل</p>
+                </div>
+            </div>
+
+            <!-- اورليس -->
+            <div class="project-card reveal" onclick="openGallery(['ourelis-1', 'ourelis-2', 'ourelis-3', 'ourelis-4', 'ourelis-5', 'ourelis-6', 'ourelis-7', 'ourelis-8', 'ourelis-9', 'ourelis-10'])">
+                <div class="img-wrapper">
+                    <img src="ourelis-cover.png" alt="اورليس" class="project-img-preview" onerror="smartImageLoad(this, 'ourelis-cover')">
+                </div>
+                <div class="project-info">
+                    <h3>اورليس</h3>
+                    <p>تصميم واجهة المستخدم</p>
+                </div>
+            </div>
+
+            <!-- اكبس -->
+            <div class="project-card reveal" onclick="openGallery(['ikbis-1', 'ikbis-2', 'ikbis-3', 'ikbis-4'])">
+                <div class="img-wrapper">
+                    <img src="ikbis-cover.png" alt="اكبس" class="project-img-preview" onerror="smartImageLoad(this, 'ikbis-cover')">
+                </div>
+                <div class="project-info">
+                    <h3>اكبس</h3>
+                    <p>تصميم وتطوير الموقع</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- النافذة المنبثقة لعرض الصور (Modal) -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <!-- زر الإغلاق X -->
+        <span class="close-btn" onclick="closeModal()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </span>
+        <div id="modalImagesContainer" class="modal-content-container" onclick="event.stopPropagation()"></div>
+    </div>
+
+    <!-- قسم الواتساب -->
+    <section class="whatsapp-section reveal">
+        <h2 class="section-title">ودّك نبدأ بمشروعك؟</h2>
+        <p class="section-subtitle" style="margin-bottom: 30px;">اضغط على الزر وكلمنا واتساب، وحنّا جاهزين نرد عليك ونبدع سوا.</p>
+        
+        <a href="https://api.whatsapp.com/send/?phone=966549478263" target="_blank" class="btn reveal">
+            <span class="wa-icon">
+                <svg viewBox="0 0 24 24"><path d="M12.031 0C5.383 0 0 5.383 0 12.031c0 2.12.551 4.195 1.597 6.015L.153 24l6.113-1.603a11.96 11.96 0 0 0 5.765 1.488h.004c6.648 0 12.03-5.383 12.03-12.03S18.679 0 12.031 0zm0 21.874h-.003a9.92 9.92 0 0 1-5.06-1.378l-.362-.215-3.766.988.995-3.67-.235-.375a9.932 9.932 0 0 1-1.522-5.193c0-5.485 4.464-9.948 9.953-9.948 2.658 0 5.158 1.036 7.037 2.915 1.88 1.88 2.915 4.38 2.915 7.037 0 5.486-4.464 9.949-9.952 9.949zm5.459-7.447c-.299-.15-1.772-.875-2.046-.975-.274-.101-.475-.15-.674.15-.2.3-.774.975-.95 1.175-.175.201-.351.226-.65.076-.299-.15-1.265-.466-2.408-1.485-.888-.793-1.488-1.774-1.663-2.074-.175-.3-.018-.462.131-.611.135-.135.3-.35.45-.525.15-.175.2-.299.3-.5.1-.2.05-.375-.025-.525-.075-.15-.674-1.624-.924-2.224-.243-.585-.487-.506-.674-.515-.175-.01-.375-.01-.575-.01-.2 0-.525.075-.8.375-.275.3-1.049 1.025-1.049 2.5s1.074 2.899 1.224 3.099c.15.2 2.112 3.224 5.112 4.524 2.846 1.233 3.398 1.05 3.998.975.6-.075 1.772-.725 2.022-1.425.25-.7.25-1.3.175-1.425-.075-.125-.275-.2-.575-.35z"/></svg>
+            </span>
+            تواصل معنا واتساب
+        </a>
+    </section>
+
+    <!-- قسم السوشيال ميديا -->
+    <section class="social-section reveal">
+        <h2 class="section-title">تابعنا وخلّك قريب</h2>
+        <p class="section-subtitle">شوف كواليسنا وجديد أعمالنا على منصات التواصل الاجتماعي.</p>
+        
+        <div class="social-links">
+            <!-- أيقونة إكس X المضمونة -->
+            <a href="https://x.com/offtrack_sa?s=20" target="_blank" class="social-icon" title="إكس (تويتر)">
+                <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <!-- أيقونة إنستقرام -->
+            <a href="https://www.instagram.com/offtrack_sa?igsh=OHdkZGU3N3V3NGYz" target="_blank" class="social-icon" title="إنستقرام">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <!-- أيقونة تيك توك -->
+            <a href="https://www.tiktok.com/@offtrack_sa" target="_blank" class="social-icon" title="تيك توك">
+                <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.04-.1z"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 وكالة خارج المسار. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <!-- سكربتات تفاعلية -->
+    <script>
+        // دالة الـ Fallback الذكية للصور (عشان لو كانت jpg تشتغل بدون مشاكل)
+        function smartImageLoad(imgElement, baseName) {
+            if (!imgElement.dataset.retried) {
+                // المحاولة الأولى: يجرب يغيرها لـ jpg
+                imgElement.dataset.retried = 'true';
+                imgElement.src = baseName + '.jpg';
+            } else if (imgElement.dataset.retried === 'true') {
+                // المحاولة الثانية: يجرب يغيرها لـ jpeg
+                imgElement.dataset.retried = 'final';
+                imgElement.src = baseName + '.jpeg';
+            } else {
+                // إذا مالقى أي صورة، يحط مربع أزرق مرتب يوضح لك إن الصورة ناقصة في قيت هاب
+                imgElement.src = `https://via.placeholder.com/800x600/012169/efe9d9?text=Missing+Image:+${baseName}`;
+            }
+        }
+
+        // حركة ظهور العناصر عند النزول بالماوس
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // تشغيلها أول مرة يفتح الموقع
+
+        // التمرير السلس للروابط
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // فتح وإغلاق معرض الصور
+        const modal = document.getElementById("imageModal");
+        const container = document.getElementById("modalImagesContainer");
+
+        function openGallery(imageNamesArray) {
+            container.innerHTML = ""; 
+            
+            imageNamesArray.forEach(name => {
+                let img = document.createElement("img");
+                // يبدأ بـ png، ولو فشل بيشتغل النظام الذكي اللي فوق
+                img.src = name + '.png'; 
+                img.onerror = function() { smartImageLoad(this, name); };
+                container.appendChild(img);
+            });
+
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden"; // يوقف الخلفية
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; // يرجع الخلفية تتحرك
+        }
+    </script>
+</body>
+</html>
