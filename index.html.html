@@ -71,12 +71,18 @@
         nav a:hover { color: var(--primary-orange); }
 
         /* الأقسام العامة */
-        section { padding: 120px 5% 80px; box-sizing: border-box; }
+        section { padding: 120px 5% 60px; box-sizing: border-box; }
         .section-title {
             text-align: center;
             font-size: 2.8rem;
-            margin-bottom: 50px;
+            margin-bottom: 20px;
             color: var(--primary-blue);
+        }
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 50px;
         }
 
         /* القسم الرئيسي */
@@ -143,18 +149,18 @@
             width: 100%; height: 100%; 
             background-color: rgba(0,0,0,0.85); 
             backdrop-filter: blur(5px);
-            overflow-y: auto; /* السماح بالنزول لرؤية باقي الصور */
+            overflow-y: auto; 
         }
         
         .modal-content-container {
             margin: 5% auto;
             display: flex;
             flex-direction: column;
-            gap: 15px; /* مسافة بين الصور */
+            gap: 15px; 
             width: 90%;
             max-width: 800px;
             animation: zoomIn 0.3s ease;
-            padding-bottom: 50px; /* مساحة تحت آخر صورة */
+            padding-bottom: 50px; 
         }
 
         .modal-content-container img {
@@ -189,30 +195,16 @@
         }
         .close-btn:hover { background: var(--primary-orange); }
 
-        /* قسم التواصل والسوشيال ميديا */
-        .contact-section {
+        /* قسم الواتساب (مستقل) */
+        .whatsapp-section {
             background: var(--white);
             text-align: center;
             border-radius: 30px;
-            padding: 60px 20px;
-            margin-top: 50px;
+            padding: 70px 20px;
+            margin: 50px 5%;
+            box-shadow: 0 10px 30px rgba(1, 33, 105, 0.05);
         }
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .social-btn i {
-            font-size: 2.5rem;
-            color: var(--primary-blue);
-            transition: all 0.3s;
-        }
-
-        .social-btn i:hover { color: var(--primary-orange); transform: scale(1.2); }
-        
         .whatsapp-btn {
             background: #25D366; 
             color: white;
@@ -222,7 +214,7 @@
             justify-content: center;
             gap: 10px;
             width: fit-content;
-            margin: 0 auto;
+            margin: 20px auto 0;
             border-radius: 12px;
             font-weight: bold;
             font-size: 1.2rem;
@@ -232,7 +224,28 @@
         .whatsapp-btn:hover { background: #1ebd57; color: white; transform: translateY(-5px);}
         .whatsapp-btn i { font-size: 1.5rem; }
 
-        footer { text-align: center; padding: 30px; color: var(--text-muted); }
+        /* قسم السوشيال ميديا (مستقل) */
+        .social-section {
+            text-align: center;
+            padding: 60px 20px 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            margin: 30px 0;
+        }
+
+        .social-btn i {
+            font-size: 2.8rem;
+            color: var(--primary-blue);
+            transition: all 0.3s;
+        }
+
+        .social-btn i:hover { color: var(--primary-orange); transform: scale(1.2); }
+        
+        footer { text-align: center; padding: 20px; color: var(--text-muted); font-size: 0.9rem; }
 
     </style>
 </head>
@@ -260,32 +273,33 @@
     <!-- قسم الأعمال -->
     <section id="projects">
         <h2 class="section-title fade-in-element">أعمالنا</h2>
+        <p class="section-subtitle fade-in-element">اضغط على أي مشروع عشان تشوف تفاصيله</p>
         <div class="projects-grid">
             
-            <!-- مشروع 1: الفخامة للعود (5 صور) -->
-            <div class="project-card fade-in-element" onclick="openModal(['alfakhama-1.jpg', 'alfakhama-2.jpg', 'alfakhama-3.jpg', 'alfakhama-4.jpg', 'alfakhama-5.jpg'])">
+            <!-- مشروع 1: الفخامة للعود (5 صور PNG) -->
+            <div class="project-card fade-in-element" onclick="openModal(['alfakhama-1.png', 'alfakhama-2.png', 'alfakhama-3.png', 'alfakhama-4.png', 'alfakhama-5.png'])">
                 <!-- صورة الغلاف -->
-                <img src="alfakhama-cover.jpg" alt="الفخامة للعود" class="project-img-preview" onerror="this.src='https://via.placeholder.com/600x400/012169/efe9d9?text=غلاف+الفخامة+للعود'">
+                <img src="alfakhama-cover.png" alt="الفخامة للعود" class="project-img-preview" onerror="this.src='https://via.placeholder.com/600x400/012169/efe9d9?text=غلاف+الفخامة+للعود'">
                 <div class="project-info">
                     <h3>الفخامة للعود</h3>
                     <p>تصميم متجر رقمي متكامل</p>
                 </div>
             </div>
 
-            <!-- مشروع 2: اورليس (10 صور) -->
-            <div class="project-card fade-in-element" onclick="openModal(['ourelis-1.jpg', 'ourelis-2.jpg', 'ourelis-3.jpg', 'ourelis-4.jpg', 'ourelis-5.jpg', 'ourelis-6.jpg', 'ourelis-7.jpg', 'ourelis-8.jpg', 'ourelis-9.jpg', 'ourelis-10.jpg'])">
+            <!-- مشروع 2: اورليس (10 صور PNG) -->
+            <div class="project-card fade-in-element" onclick="openModal(['ourelis-1.png', 'ourelis-2.png', 'ourelis-3.png', 'ourelis-4.png', 'ourelis-5.png', 'ourelis-6.png', 'ourelis-7.png', 'ourelis-8.png', 'ourelis-9.png', 'ourelis-10.png'])">
                 <!-- صورة الغلاف -->
-                <img src="ourelis-cover.jpg" alt="اورليس" class="project-img-preview" onerror="this.src='https://via.placeholder.com/600x400/012169/efe9d9?text=غلاف+اورليس'">
+                <img src="ourelis-cover.png" alt="اورليس" class="project-img-preview" onerror="this.src='https://via.placeholder.com/600x400/012169/efe9d9?text=غلاف+اورليس'">
                 <div class="project-info">
                     <h3>اورليس</h3>
                     <p>تصميم واجهة المستخدم</p>
                 </div>
             </div>
 
-            <!-- مشروع 3: اكبس (4 صور) -->
-            <div class="project-card fade-in-element" onclick="openModal(['ikbis-1.jpg', 'ikbis-2.jpg', 'ikbis-3.jpg', 'ikbis-4.jpg'])">
+            <!-- مشروع 3: اكبس (4 صور PNG) -->
+            <div class="project-card fade-in-element" onclick="openModal(['ikbis-1.png', 'ikbis-2.png', 'ikbis-3.png', 'ikbis-4.png'])">
                 <!-- صورة الغلاف -->
-                <img src="ikbis-cover.jpg" alt="اكبس" class="project-img-preview" onerror="this.src='https://via.placeholder.com/600x400/012169/efe9d9?text=غلاف+اكبس'">
+                <img src="ikbis-cover.png" alt="اكبس" class="project-img-preview" onerror="this.src='https://via.placeholder.com/600x400/012169/efe9d9?text=غلاف+اكبس'">
                 <div class="project-info">
                     <h3>اكبس</h3>
                     <p>تصميم وتطوير الموقع</p>
@@ -301,22 +315,27 @@
         <div id="modalImagesContainer" class="modal-content-container" onclick="event.stopPropagation()"></div>
     </div>
 
-    <!-- قسم التواصل والسوشيال ميديا -->
-    <section id="contact" class="contact-section fade-in-element">
-        <h2 class="section-title">خلّنا نبدع سوا</h2>
-        <p>تابعنا على حساباتنا أو تواصل معنا واتساب عشان نبدأ مشروعك.</p>
+    <!-- قسم الواتساب (مستقل) -->
+    <section class="whatsapp-section fade-in-element">
+        <h2 class="section-title">ودّك نبدأ بمشروعك؟</h2>
+        <p class="section-subtitle" style="margin-bottom: 20px;">اضغط على الزر وكلمنا واتساب، وحنّا جاهزين نرد عليك ونبدع سوا.</p>
         
-        <!-- أيقونات السوشيال ميديا -->
-        <div class="social-links fade-in-element">
-            <a href="https://x.com/offtrack_sa?s=20" target="_blank" class="social-btn" title="إكس"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://www.instagram.com/offtrack_sa?igsh=OHdkZGU3N3V3NGYz" target="_blank" class="social-btn" title="إنستقرام"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@offtrack_sa" target="_blank" class="social-btn" title="تيك توك"><i class="fa-brands fa-tiktok"></i></a>
-        </div>
-
-        <!-- زر الواتساب -->
         <a href="https://api.whatsapp.com/send/?phone=966549478263" target="_blank" class="btn whatsapp-btn fade-in-element">
             <i class="fa-brands fa-whatsapp"></i> تواصل معنا واتساب
         </a>
+    </section>
+
+    <!-- قسم السوشيال ميديا (مستقل) -->
+    <section class="social-section fade-in-element">
+        <h2 class="section-title">تابعنا وخلّك قريب</h2>
+        <p class="section-subtitle">شوف كواليسنا وجديد أعمالنا على منصات التواصل الاجتماعي.</p>
+        
+        <!-- أيقونات السوشيال ميديا -->
+        <div class="social-links fade-in-element">
+            <a href="https://x.com/offtrack_sa?s=20" target="_blank" class="social-btn" title="إكس (تويتر)"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/offtrack_sa?igsh=OHdkZGU3N3V3NGYz" target="_blank" class="social-btn" title="إنستقرام"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@offtrack_sa" target="_blank" class="social-btn" title="تيك توك"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
     </section>
 
     <footer>
@@ -357,7 +376,6 @@
             imageArray.forEach(src => {
                 let img = document.createElement("img");
                 img.src = src;
-                // إذا الصورة مو موجودة يحط هذي كبديل مؤقت عشان ما يخرب الشكل
                 img.onerror = function() {
                     this.src = `https://via.placeholder.com/800x600/012169/efe9d9?text=صورة+قيد+التحميل+(${src})`;
                 };
