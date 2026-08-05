@@ -8,6 +8,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
     
     <style>
+        /* قاعدة أساسية تمنع أي زوايد يمين ويسار وتضبط الأحجام */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
         /* الألوان والهوية البصرية */
         :root {
             --bg-color: #efe9d9; 
@@ -21,13 +33,11 @@
         }
 
         body {
-            margin: 0;
             font-family: 'Tajawal', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-dark);
             line-height: 1.7;
             scroll-behavior: smooth; 
-            overflow-x: hidden;
             position: relative;
         }
 
@@ -43,6 +53,7 @@
             z-index: -1;
             border-radius: 50%;
             animation: floatGlow 10s infinite alternate;
+            pointer-events: none; /* عشان ما يأثر على العرض */
         }
 
         @keyframes floatGlow {
@@ -73,7 +84,6 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 30px;
-            box-sizing: border-box;
             z-index: 1000;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(1, 33, 105, 0.05);
@@ -105,7 +115,7 @@
         nav a:hover::after { width: 100%; }
 
         /* الأقسام العامة */
-        section { padding: 150px 5% 80px; box-sizing: border-box; }
+        section { padding: 150px 5% 80px; }
         
         .section-title {
             text-align: center;
@@ -171,8 +181,8 @@
         /* قسم الأعمال (البطاقات الاحترافية) */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* تم التعديل لتناسب الجوالات */
+            gap: 30px;
         }
 
         .project-card {
@@ -225,6 +235,7 @@
             background-color: rgba(1, 33, 105, 0.95);
             backdrop-filter: blur(8px);
             overflow-y: auto; 
+            overflow-x: hidden;
         }
         
         .modal-content-container {
@@ -253,14 +264,14 @@
         .close-btn {
             position: fixed;
             top: 25px;
-            right: 35px;
+            right: 25px; /* تم تعديلها لتناسب الشاشات الصغيرة */
             color: #fff;
             font-size: 30px;
             cursor: pointer;
             z-index: 2001;
             background: var(--primary-orange);
-            width: 55px;
-            height: 55px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -287,8 +298,9 @@
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 25px;
             margin: 30px 0;
+            flex-wrap: wrap; /* عشان لو شاشة الجوال صغيرة تنزل تحت بعض بدل ما تطلع يمين ويسار */
         }
 
         .social-icon {
@@ -310,10 +322,14 @@
 
         footer { text-align: center; padding: 30px; color: var(--text-muted); font-size: 1rem; font-weight: 500; }
 
+        /* تحسينات إضافية للجوالات عشان الزوايد */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 3rem; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero p { font-size: 1.2rem; padding: 0 10px; }
             header { width: 95%; left: 2.5%; padding: 10px 15px; }
             .section-title { font-size: 2.2rem; }
+            section { padding: 120px 5% 50px; }
+            nav a { margin-right: 15px; font-size: 1rem; }
         }
     </style>
 </head>
