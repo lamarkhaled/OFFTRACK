@@ -31,7 +31,7 @@
             position: relative;
         }
 
-        /* خلفية جمالية متحركة (Agency Vibe) */
+        /* خلفية جمالية متحركة */
         body::before {
             content: '';
             position: absolute;
@@ -60,7 +60,7 @@
         }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* الهيدر الزجاجي (Glassmorphism) */
+        /* الهيدر الزجاجي */
         header {
             position: fixed;
             top: 20px;
@@ -197,6 +197,7 @@
             width: 100%;
             height: 280px;
             overflow: hidden;
+            background-color: rgba(1, 33, 105, 0.05);
         }
 
         .project-img-preview {
@@ -221,7 +222,7 @@
             z-index: 2000; 
             left: 0; top: 0; 
             width: 100%; height: 100%; 
-            background-color: rgba(1, 33, 105, 0.95); /* خلفية كحلية شفافة */
+            background-color: rgba(1, 33, 105, 0.95);
             backdrop-filter: blur(8px);
             overflow-y: auto; 
         }
@@ -280,7 +281,7 @@
             border: 1px solid rgba(255,255,255,0.6);
         }
 
-        /* أيقونات السوشيال ميديا المدمجة (SVG) */
+        /* السوشيال ميديا */
         .social-section { text-align: center; padding: 60px 20px 20px; }
         
         .social-links {
@@ -303,15 +304,12 @@
         }
         
         .social-icon svg { width: 28px; height: 28px; fill: var(--primary-blue); transition: all 0.3s; }
-        
         .social-icon:hover { transform: translateY(-8px); background: var(--primary-orange); }
         .social-icon:hover svg { fill: var(--white); }
-        
         .wa-icon svg { width: 24px; height: 24px; fill: currentColor; margin-left: 10px; }
 
         footer { text-align: center; padding: 30px; color: var(--text-muted); font-size: 1rem; font-weight: 500; }
 
-        /* شاشات الجوال */
         @media (max-width: 768px) {
             .hero h1 { font-size: 3rem; }
             header { width: 95%; left: 2.5%; padding: 10px 15px; }
@@ -324,8 +322,8 @@
     <!-- شريط التصفح -->
     <header>
         <a href="#hero">
-            <!-- كود للتعامل الذكي مع صيغة الشعار -->
-            <img src="kumo.png" alt="شعار خارج المسار" class="logo-img" onerror="smartImageLoad(this, 'kumo')">
+            <!-- الشعار -->
+            <img src="https://i.postimg.cc/hGnM2MNr/kumo.png" alt="شعار خارج المسار" class="logo-img">
         </a>
         <nav>
             <a href="#hero">الرئيسية</a>
@@ -346,10 +344,17 @@
         <p class="section-subtitle reveal">اضغط على أي مشروع عشان تشوف تفاصيله</p>
         <div class="projects-grid">
             
-            <!-- الفخامة للعود -->
-            <div class="project-card reveal" onclick="openGallery(['alfakhama-1', 'alfakhama-2', 'alfakhama-3', 'alfakhama-4', 'alfakhama-5'])">
+            <!-- مشروع 1: الفخامة للعود -->
+            <div class="project-card reveal" onclick="openGallery([
+                'https://i.postimg.cc/RZHc5fwp/IMG-0231.png', 
+                'https://i.postimg.cc/6pvdJRCP/IMG-0232.png', 
+                'https://i.postimg.cc/nhDvb7qN/IMG-0233.png', 
+                'https://i.postimg.cc/GmykwYvV/IMG-0234.png', 
+                'https://i.postimg.cc/Z5drt36G/IMG-0235.png'
+            ])">
                 <div class="img-wrapper">
-                    <img src="alfakhama-cover.png" alt="الفخامة للعود" class="project-img-preview" onerror="smartImageLoad(this, 'alfakhama-cover')">
+                    <!-- غلاف الفخامة -->
+                    <img src="https://i.postimg.cc/RZHc5fwp/IMG-0231.png" alt="الفخامة للعود" class="project-img-preview">
                 </div>
                 <div class="project-info">
                     <h3>الفخامة للعود</h3>
@@ -357,10 +362,22 @@
                 </div>
             </div>
 
-            <!-- اورليس -->
-            <div class="project-card reveal" onclick="openGallery(['ourelis-1', 'ourelis-2', 'ourelis-3', 'ourelis-4', 'ourelis-5', 'ourelis-6', 'ourelis-7', 'ourelis-8', 'ourelis-9', 'ourelis-10'])">
+            <!-- مشروع 2: اورليس -->
+            <div class="project-card reveal" onclick="openGallery([
+                'https://i.postimg.cc/J4gb2KHy/IMG-0220.png', 
+                'https://i.postimg.cc/pX7D6k5J/IMG-0221.png', 
+                'https://i.postimg.cc/gk5vT4Ly/IMG-0222.png', 
+                'https://i.postimg.cc/nc5vPT9k/IMG-0223.png', 
+                'https://i.postimg.cc/15TpjMVK/IMG-0224.png',
+                'https://i.postimg.cc/vHjWNXx0/IMG-0225.png',
+                'https://i.postimg.cc/jd9zFvn3/IMG-0226.png',
+                'https://i.postimg.cc/52Cwdv8B/IMG-0227.png',
+                'https://i.postimg.cc/fR9xnXYv/IMG-0228.png',
+                'https://i.postimg.cc/qv38Vn2j/IMG-0229.png'
+            ])">
                 <div class="img-wrapper">
-                    <img src="ourelis-cover.png" alt="اورليس" class="project-img-preview" onerror="smartImageLoad(this, 'ourelis-cover')">
+                    <!-- غلاف اورليس -->
+                    <img src="https://i.postimg.cc/J4gb2KHy/IMG-0220.png" alt="اورليس" class="project-img-preview">
                 </div>
                 <div class="project-info">
                     <h3>اورليس</h3>
@@ -368,10 +385,16 @@
                 </div>
             </div>
 
-            <!-- اكبس -->
-            <div class="project-card reveal" onclick="openGallery(['ikbis-1', 'ikbis-2', 'ikbis-3', 'ikbis-4'])">
+            <!-- مشروع 3: اكبس -->
+            <div class="project-card reveal" onclick="openGallery([
+                'https://i.postimg.cc/VkCjQMjm/IMG-0236.png', 
+                'https://i.postimg.cc/XYCwSFwW/IMG-0237.png', 
+                'https://i.postimg.cc/VkCjQMj8/IMG-0238.png', 
+                'https://i.postimg.cc/y8ZF49FB/IMG-0239.png'
+            ])">
                 <div class="img-wrapper">
-                    <img src="ikbis-cover.png" alt="اكبس" class="project-img-preview" onerror="smartImageLoad(this, 'ikbis-cover')">
+                    <!-- غلاف اكبس -->
+                    <img src="https://i.postimg.cc/VkCjQMjm/IMG-0236.png" alt="اكبس" class="project-img-preview">
                 </div>
                 <div class="project-info">
                     <h3>اكبس</h3>
@@ -384,7 +407,6 @@
 
     <!-- النافذة المنبثقة لعرض الصور (Modal) -->
     <div id="imageModal" class="modal" onclick="closeModal()">
-        <!-- زر الإغلاق X -->
         <span class="close-btn" onclick="closeModal()">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </span>
@@ -395,7 +417,6 @@
     <section class="whatsapp-section reveal">
         <h2 class="section-title">ودّك نبدأ بمشروعك؟</h2>
         <p class="section-subtitle" style="margin-bottom: 30px;">اضغط على الزر وكلمنا واتساب، وحنّا جاهزين نرد عليك ونبدع سوا.</p>
-        
         <a href="https://api.whatsapp.com/send/?phone=966549478263" target="_blank" class="btn reveal">
             <span class="wa-icon">
                 <svg viewBox="0 0 24 24"><path d="M12.031 0C5.383 0 0 5.383 0 12.031c0 2.12.551 4.195 1.597 6.015L.153 24l6.113-1.603a11.96 11.96 0 0 0 5.765 1.488h.004c6.648 0 12.03-5.383 12.03-12.03S18.679 0 12.031 0zm0 21.874h-.003a9.92 9.92 0 0 1-5.06-1.378l-.362-.215-3.766.988.995-3.67-.235-.375a9.932 9.932 0 0 1-1.522-5.193c0-5.485 4.464-9.948 9.953-9.948 2.658 0 5.158 1.036 7.037 2.915 1.88 1.88 2.915 4.38 2.915 7.037 0 5.486-4.464 9.949-9.952 9.949zm5.459-7.447c-.299-.15-1.772-.875-2.046-.975-.274-.101-.475-.15-.674.15-.2.3-.774.975-.95 1.175-.175.201-.351.226-.65.076-.299-.15-1.265-.466-2.408-1.485-.888-.793-1.488-1.774-1.663-2.074-.175-.3-.018-.462.131-.611.135-.135.3-.35.45-.525.15-.175.2-.299.3-.5.1-.2.05-.375-.025-.525-.075-.15-.674-1.624-.924-2.224-.243-.585-.487-.506-.674-.515-.175-.01-.375-.01-.575-.01-.2 0-.525.075-.8.375-.275.3-1.049 1.025-1.049 2.5s1.074 2.899 1.224 3.099c.15.2 2.112 3.224 5.112 4.524 2.846 1.233 3.398 1.05 3.998.975.6-.075 1.772-.725 2.022-1.425.25-.7.25-1.3.175-1.425-.075-.125-.275-.2-.575-.35z"/></svg>
@@ -410,18 +431,9 @@
         <p class="section-subtitle">شوف كواليسنا وجديد أعمالنا على منصات التواصل الاجتماعي.</p>
         
         <div class="social-links">
-            <!-- أيقونة إكس X المضمونة -->
-            <a href="https://x.com/offtrack_sa?s=20" target="_blank" class="social-icon" title="إكس (تويتر)">
-                <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-            <!-- أيقونة إنستقرام -->
-            <a href="https://www.instagram.com/offtrack_sa?igsh=OHdkZGU3N3V3NGYz" target="_blank" class="social-icon" title="إنستقرام">
-                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            </a>
-            <!-- أيقونة تيك توك -->
-            <a href="https://www.tiktok.com/@offtrack_sa" target="_blank" class="social-icon" title="تيك توك">
-                <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.04-.1z"/></svg>
-            </a>
+            <a href="https://x.com/offtrack_sa?s=20" target="_blank" class="social-icon" title="إكس (تويتر)"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="https://www.instagram.com/offtrack_sa?igsh=OHdkZGU3N3V3NGYz" target="_blank" class="social-icon" title="إنستقرام"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a href="https://www.tiktok.com/@offtrack_sa" target="_blank" class="social-icon" title="تيك توك"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.04-.1z"/></svg></a>
         </div>
     </section>
 
@@ -431,22 +443,6 @@
 
     <!-- سكربتات تفاعلية -->
     <script>
-        // دالة الـ Fallback الذكية للصور (عشان لو كانت jpg تشتغل بدون مشاكل)
-        function smartImageLoad(imgElement, baseName) {
-            if (!imgElement.dataset.retried) {
-                // المحاولة الأولى: يجرب يغيرها لـ jpg
-                imgElement.dataset.retried = 'true';
-                imgElement.src = baseName + '.jpg';
-            } else if (imgElement.dataset.retried === 'true') {
-                // المحاولة الثانية: يجرب يغيرها لـ jpeg
-                imgElement.dataset.retried = 'final';
-                imgElement.src = baseName + '.jpeg';
-            } else {
-                // إذا مالقى أي صورة، يحط مربع أزرق مرتب يوضح لك إن الصورة ناقصة في قيت هاب
-                imgElement.src = `https://via.placeholder.com/800x600/012169/efe9d9?text=Missing+Image:+${baseName}`;
-            }
-        }
-
         // حركة ظهور العناصر عند النزول بالماوس
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
@@ -460,7 +456,7 @@
             }
         }
         window.addEventListener("scroll", reveal);
-        reveal(); // تشغيلها أول مرة يفتح الموقع
+        reveal();
 
         // التمرير السلس للروابط
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -470,28 +466,29 @@
             });
         });
 
-        // فتح وإغلاق معرض الصور
+        // فتح وإغلاق معرض الصور 
         const modal = document.getElementById("imageModal");
         const container = document.getElementById("modalImagesContainer");
 
-        function openGallery(imageNamesArray) {
+        function openGallery(imageUrlsArray) {
             container.innerHTML = ""; 
             
-            imageNamesArray.forEach(name => {
+            imageUrlsArray.forEach(url => {
                 let img = document.createElement("img");
-                // يبدأ بـ png، ولو فشل بيشتغل النظام الذكي اللي فوق
-                img.src = name + '.png'; 
-                img.onerror = function() { smartImageLoad(this, name); };
+                img.src = url; 
+                img.onerror = function() { 
+                    this.src = 'https://via.placeholder.com/800x600/012169/efe9d9?text=الرابط+غير+مباشر..+يرجى+تعديله'; 
+                };
                 container.appendChild(img);
             });
 
             modal.style.display = "block";
-            document.body.style.overflow = "hidden"; // يوقف الخلفية
+            document.body.style.overflow = "hidden";
         }
 
         function closeModal() {
             modal.style.display = "none";
-            document.body.style.overflow = "auto"; // يرجع الخلفية تتحرك
+            document.body.style.overflow = "auto";
         }
     </script>
 </body>
