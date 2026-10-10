@@ -94,9 +94,9 @@
         .logo-img:hover { transform: scale(1.05); }
 
         nav a {
-            margin-right: 30px;
+            margin-right: 25px;
             font-weight: 800;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: var(--primary-blue);
             position: relative;
         }
@@ -115,7 +115,17 @@
         nav a:hover::after { width: 100%; }
 
         /* الأقسام العامة */
-        section { padding: 150px 5% 80px; }
+        .service-section { 
+            padding: 120px 5% 80px; 
+            margin-bottom: 50px;
+        }
+        
+        /* تمييز خلفية قسم المواقع التعريفية */
+        .bg-alt {
+            background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(239,233,217,0) 100%);
+            border-top: 1px solid rgba(255,255,255,0.6);
+            border-bottom: 1px solid rgba(255,255,255,0.6);
+        }
         
         .section-title {
             text-align: center;
@@ -129,7 +139,25 @@
             text-align: center;
             font-size: 1.2rem;
             color: var(--text-muted);
-            margin-bottom: 60px;
+            margin-bottom: 50px;
+        }
+
+        .sub-heading {
+            font-size: 1.8rem;
+            color: var(--primary-orange);
+            margin: 60px 0 30px 0;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .sub-heading::before {
+            content: '';
+            width: 40px;
+            height: 4px;
+            background: var(--primary-orange);
+            border-radius: 2px;
         }
 
         /* القسم الرئيسي (Hero) */
@@ -164,10 +192,10 @@
             gap: 10px;
             background: linear-gradient(135deg, var(--primary-orange), #ff784e);
             color: #fff;
-            padding: 16px 45px;
+            padding: 16px 40px;
             border-radius: 50px;
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             cursor: pointer;
             border: none;
             box-shadow: 0 10px 25px rgba(255, 87, 34, 0.3);
@@ -225,19 +253,18 @@
         .project-info h3 { margin: 0 0 10px 0; color: var(--primary-blue); font-size: 1.8rem; font-weight: 800; }
         .project-info p { color: var(--text-muted); font-size: 1.1rem; margin: 0; font-weight: 500;}
 
-        /* قسم الباقات الجديد (التسعير) */
+        /* قسم الباقات (التسعير) */
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 40px;
         }
 
         .pricing-card {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
             border-radius: 30px;
-            padding: 50px 40px;
+            padding: 40px 30px;
             box-shadow: 0 15px 35px rgba(1, 33, 105, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.8);
             transition: all var(--transition-speed);
@@ -257,31 +284,47 @@
             background: var(--white);
             border: 2px solid var(--primary-orange);
             box-shadow: 0 20px 40px rgba(255, 87, 34, 0.15);
+            transform: scale(1.03);
+            z-index: 2;
         }
+        
+        .pricing-card.premium:hover { transform: scale(1.05) translateY(-5px); }
 
         .pricing-card.premium::before {
-            content: 'الأكثر طلباً للمكاتب';
+            content: 'الأكثر طلباً';
             position: absolute;
-            top: 25px;
-            right: -45px;
+            top: 22px;
+            right: -35px;
             background: var(--primary-orange);
             color: white;
-            padding: 8px 50px;
+            padding: 8px 40px;
             transform: rotate(45deg);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 800;
+        }
+
+        .pricing-card.vip {
+            background: linear-gradient(135deg, #1a1a1a, var(--primary-blue));
+            border: none;
+            color: white;
+        }
+        
+        .pricing-card.vip .price-box h3, .pricing-card.vip .price-box p, .pricing-card.vip .features-list li {
+            color: white;
         }
 
         .price-box {
             text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 30px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
             border-bottom: 2px dashed rgba(1, 33, 105, 0.1);
         }
+        
+        .pricing-card.vip .price-box { border-bottom: 2px dashed rgba(255, 255, 255, 0.2); }
 
         .price-box h3 {
             color: var(--primary-blue);
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin: 0 0 10px 0;
             font-weight: 900;
         }
@@ -289,11 +332,12 @@
         .price-box p {
             color: var(--text-muted);
             margin: 0 0 20px 0;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            min-height: 45px;
         }
 
         .price {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 900;
             color: var(--primary-orange);
             display: flex;
@@ -302,22 +346,19 @@
             gap: 10px;
         }
 
-        .price span {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            font-weight: 700;
-        }
+        .price span { font-size: 1.1rem; color: var(--text-muted); font-weight: 700; }
+        .pricing-card.vip .price span { color: rgba(255,255,255,0.7); }
 
         .features-list {
             list-style: none;
             padding: 0;
-            margin: 0 0 40px 0;
+            margin: 0 0 30px 0;
             flex-grow: 1;
         }
 
         .features-list li {
-            margin-bottom: 18px;
-            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
             font-weight: 600;
             color: var(--text-dark);
             display: flex;
@@ -329,13 +370,13 @@
             content: '✔';
             color: var(--white);
             background: var(--primary-orange);
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             flex-shrink: 0;
             margin-top: 3px;
         }
@@ -364,88 +405,44 @@
             padding-bottom: 50px; 
         }
 
-        .modal-content-container img {
-            width: 100%;
-            border-radius: 16px;
-            display: block;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
+        .modal-content-container img { width: 100%; border-radius: 16px; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 
-        @keyframes slideUp {
-            from {transform: translateY(50px); opacity: 0;}
-            to {transform: translateY(0); opacity: 1;}
-        }
+        @keyframes slideUp { from {transform: translateY(50px); opacity: 0;} to {transform: translateY(0); opacity: 1;} }
 
         .close-btn {
-            position: fixed;
-            top: 25px;
-            right: 25px; 
-            color: #fff;
-            font-size: 30px;
-            cursor: pointer;
-            z-index: 2001;
-            background: var(--primary-orange);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 5px 15px rgba(255, 87, 34, 0.4);
+            position: fixed; top: 25px; right: 25px; color: #fff; font-size: 30px; cursor: pointer;
+            z-index: 2001; background: var(--primary-orange); width: 50px; height: 50px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(255, 87, 34, 0.4);
             transition: all 0.3s;
         }
         .close-btn:hover { transform: rotate(90deg) scale(1.1); background: #fff; color: var(--primary-orange); }
 
-        /* قسم الواتساب */
+        /* قسم الواتساب والسوشيال */
         .whatsapp-section {
             background: linear-gradient(135deg, var(--white), rgba(255,255,255,0.4));
-            text-align: center;
-            border-radius: 30px;
-            padding: 80px 20px;
-            margin: 50px 5%;
-            box-shadow: 0 15px 40px rgba(1, 33, 105, 0.05);
-            border: 1px solid rgba(255,255,255,0.6);
+            text-align: center; border-radius: 30px; padding: 80px 20px; margin: 50px 5%;
+            box-shadow: 0 15px 40px rgba(1, 33, 105, 0.05); border: 1px solid rgba(255,255,255,0.6);
         }
 
-        /* السوشيال ميديا */
         .social-section { text-align: center; padding: 60px 20px 20px; }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin: 30px 0;
-            flex-wrap: wrap; 
-        }
-
-        .social-icon {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--white);
-            border-radius: 50%;
-            box-shadow: 0 10px 20px rgba(1, 33, 105, 0.08);
-            transition: all var(--transition-speed);
-        }
-        
+        .social-links { display: flex; justify-content: center; gap: 25px; margin: 30px 0; flex-wrap: wrap; }
+        .social-icon { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; background: var(--white); border-radius: 50%; box-shadow: 0 10px 20px rgba(1, 33, 105, 0.08); transition: all var(--transition-speed); }
         .social-icon svg { width: 28px; height: 28px; fill: var(--primary-blue); transition: all 0.3s; }
         .social-icon:hover { transform: translateY(-8px); background: var(--primary-orange); }
         .social-icon:hover svg { fill: var(--white); }
         .wa-icon svg { width: 24px; height: 24px; fill: currentColor; margin-left: 10px; }
-
         footer { text-align: center; padding: 30px; color: var(--text-muted); font-size: 1rem; font-weight: 500; }
 
         /* تحسينات الجوال */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.8rem; }
             .hero p { font-size: 1.2rem; padding: 0 10px; }
-            header { width: 95%; left: 2.5%; padding: 10px 15px; }
+            header { width: 95%; left: 2.5%; padding: 10px; }
+            nav a { margin-right: 12px; font-size: 0.9rem; }
             .section-title { font-size: 2.2rem; }
-            section { padding: 120px 5% 50px; }
-            nav a { margin-right: 15px; font-size: 1rem; }
-            .price { font-size: 3rem; }
+            .service-section { padding: 100px 5% 50px; }
+            .pricing-card.premium { transform: scale(1); }
+            .pricing-card.premium:hover { transform: translateY(-5px); }
         }
     </style>
 </head>
@@ -454,13 +451,11 @@
     <!-- شريط التصفح -->
     <header>
         <a href="#hero">
-            <!-- الشعار -->
             <img src="https://i.postimg.cc/hGnM2MNr/kumo.png" alt="شعار خارج المسار" class="logo-img">
         </a>
         <nav>
-            <a href="#hero">الرئيسية</a>
-            <a href="#projects">أعمالنا</a>
-            <a href="#pricing">الباقات</a>
+            <a href="#salla-stores">متاجر سلة</a>
+            <a href="#landing-pages">المواقع التعريفية</a>
         </nav>
     </header>
 
@@ -469,30 +464,22 @@
         <h1 class="reveal">وكالة خارج المسار</h1>
         <p class="reveal">نصمم لك متاجر ومواقع تاخذ علامتك التجارية خارج المسار المألوف، وتخلي حضورك الرقمي غير!</p>
         <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;" class="reveal">
-            <a href="#projects" class="btn">شوف أعمالنا</a>
-            <a href="#pricing" class="btn" style="background: var(--white); color: var(--primary-blue); border: 2px solid var(--primary-blue); box-shadow: none;">عرض الباقات</a>
+            <a href="#salla-stores" class="btn">تصميم متاجر سلة</a>
+            <a href="#landing-pages" class="btn" style="background: var(--white); color: var(--primary-blue); border: 2px solid var(--primary-blue); box-shadow: none;">المواقع التعريفية</a>
         </div>
     </section>
 
-    <!-- قسم الأعمال -->
-    <section id="projects">
-        <h2 class="section-title reveal">أعمالنا</h2>
-        <p class="section-subtitle reveal">اضغط على أي مشروع عشان تشوف تفاصيله</p>
+    <!-- ========================================== -->
+    <!-- القسم الأول: تصميم متاجر سلة -->
+    <!-- ========================================== -->
+    <section id="salla-stores" class="service-section">
+        <h2 class="section-title reveal">تصميم متاجر سلة</h2>
+        <p class="section-subtitle reveal">من الفكرة إلى الإطلاق، نبني لك متجر إلكتروني يبيع ويثق فيه العميل.</p>
+        
+        <!-- أعمال سلة -->
+        <h3 class="sub-heading reveal">أعمالنا في سلة</h3>
         <div class="projects-grid">
             
-            <!-- مشروع 1: أبعاد العقارية (يفتح الرابط الحي مباشرة) -->
-            <div class="project-card reveal" onclick="window.open('https://abaad-six.vercel.app/', '_blank')">
-                <div class="img-wrapper">
-                    <!-- صورة غلاف تمثل العقار الفخم -->
-                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="أبعاد العقارية" class="project-img-preview">
-                </div>
-                <div class="project-info">
-                    <h3>أبعاد العقارية</h3>
-                    <p>موقع تعريفي احترافي (SaaS Style) <br><span style="font-size: 0.9rem; color: var(--primary-orange);">اضغط لزيارة الموقع الحي ↗</span></p>
-                </div>
-            </div>
-
-            <!-- مشروع 2: الفخامة للعود -->
             <div class="project-card reveal" onclick="openGallery([
                 'https://i.postimg.cc/RZHc5fwp/IMG-0231.png', 
                 'https://i.postimg.cc/6pvdJRCP/IMG-0232.png', 
@@ -501,7 +488,6 @@
                 'https://i.postimg.cc/Z5drt36G/IMG-0235.png'
             ])">
                 <div class="img-wrapper">
-                    <!-- غلاف الفخامة -->
                     <img src="https://i.postimg.cc/RZHc5fwp/IMG-0231.png" alt="الفخامة للعود" class="project-img-preview">
                 </div>
                 <div class="project-info">
@@ -510,7 +496,6 @@
                 </div>
             </div>
 
-            <!-- مشروع 3: اورليس -->
             <div class="project-card reveal" onclick="openGallery([
                 'https://i.postimg.cc/J4gb2KHy/IMG-0220.png', 
                 'https://i.postimg.cc/pX7D6k5J/IMG-0221.png', 
@@ -524,7 +509,6 @@
                 'https://i.postimg.cc/qv38Vn2j/IMG-0229.png'
             ])">
                 <div class="img-wrapper">
-                    <!-- غلاف اورليس -->
                     <img src="https://i.postimg.cc/J4gb2KHy/IMG-0220.png" alt="اورليس" class="project-img-preview">
                 </div>
                 <div class="project-info">
@@ -533,7 +517,6 @@
                 </div>
             </div>
 
-            <!-- مشروع 4: اكبس -->
             <div class="project-card reveal" onclick="openGallery([
                 'https://i.postimg.cc/VkCjQMjm/IMG-0236.png', 
                 'https://i.postimg.cc/XYCwSFwW/IMG-0237.png', 
@@ -541,7 +524,6 @@
                 'https://i.postimg.cc/y8ZF49FB/IMG-0239.png'
             ])">
                 <div class="img-wrapper">
-                    <!-- غلاف اكبس -->
                     <img src="https://i.postimg.cc/VkCjQMjm/IMG-0236.png" alt="اكبس" class="project-img-preview">
                 </div>
                 <div class="project-info">
@@ -549,17 +531,91 @@
                     <p>تصميم وتطوير الموقع</p>
                 </div>
             </div>
+        </div>
+
+        <!-- باقات سلة -->
+        <h3 class="sub-heading reveal">باقات تصميم سلة</h3>
+        <div class="pricing-grid">
+            
+            <!-- باقة 350 -->
+            <div class="pricing-card reveal">
+                <div class="price-box">
+                    <h3>الباقة البسيطة</h3>
+                    <p>مثالية للمتاجر المبتدئة اللي تبغى تنطلق بسرعة.</p>
+                    <div class="price">350 <span>ريال</span></div>
+                </div>
+                <ul class="features-list">
+                    <li>تجهيز إعدادات المتجر الأساسية</li>
+                    <li>تنسيق واجهة بسيطة (ثيم مجاني)</li>
+                    <li>إضافة ألوان وهوية المتجر</li>
+                    <li>ربط خيارات الدفع الأساسية</li>
+                    <li>تصنيف وترتيب الأقسام</li>
+                </ul>
+                <a href="https://api.whatsapp.com/send/?phone=966549478263&text=أهلاً، مهتم بطلب %22الباقة البسيطة%22 لمتاجر سلة" target="_blank" class="btn" style="width: 100%; justify-content: center;">اطلب الباقة</a>
+            </div>
+
+            <!-- باقة 550 -->
+            <div class="pricing-card premium reveal">
+                <div class="price-box">
+                    <h3>الباقة المتوسطة</h3>
+                    <p>لتجربة تسوق احترافية ترفع من نسبة مبيعاتك.</p>
+                    <div class="price">550 <span>ريال</span></div>
+                </div>
+                <ul class="features-list">
+                    <li>تخصيص ثيم احترافي (مدفوع)</li>
+                    <li>تصميم بنرات إعلانية للمتجر (Slider)</li>
+                    <li>ربط بوابات الدفع وشركات الشحن بالكامل</li>
+                    <li>كتابة وإضافة سياسات المتجر القانونية</li>
+                    <li>ترتيب واجهة الجوال لتحسين تجربة المستخدم</li>
+                </ul>
+                <a href="https://api.whatsapp.com/send/?phone=966549478263&text=أهلاً، مهتم بطلب %22الباقة المتوسطة%22 لمتاجر سلة" target="_blank" class="btn" style="width: 100%; justify-content: center;">اطلب الباقة</a>
+            </div>
+
+            <!-- باقة 1200 -->
+            <div class="pricing-card vip reveal">
+                <div class="price-box">
+                    <h3>الباقة الكبيرة (VIP)</h3>
+                    <p>للمتاجر الكبيرة واللي تبحث عن تميز بصري كامل.</p>
+                    <div class="price">1,200 <span>ريال</span></div>
+                </div>
+                <ul class="features-list">
+                    <li>تصميم واجهة مخصصة بالكامل بأكواد CSS/HTML</li>
+                    <li>تصميم بنرات متقدمة ومتحركة</li>
+                    <li>تصميم أيقونات مخصصة لأقسام المنتجات</li>
+                    <li>تحسين واجهة المستخدم (UI/UX) لرفع التحويلات</li>
+                    <li>دعم فني وتعديلات مجانية لمدة أسبوعين</li>
+                </ul>
+                <a href="https://api.whatsapp.com/send/?phone=966549478263&text=أهلاً، مهتم بطلب %22الباقة الكبيرة (VIP)%22 لمتاجر سلة" target="_blank" class="btn" style="background: var(--white); color: var(--primary-blue); width: 100%; justify-content: center;">اطلب الباقة</a>
+            </div>
 
         </div>
     </section>
 
-    <!-- قسم الباقات الجديد (المواقع التعريفية) -->
-    <section id="pricing" style="padding-top: 50px;">
-        <h2 class="section-title reveal">باقات المواقع التعريفية</h2>
-        <p class="section-subtitle reveal">أسعار واضحة ومدروسة. اختر الباقة اللي تناسب حجم طموحك.</p>
+    <!-- ========================================== -->
+    <!-- القسم الثاني: المواقع التعريفية -->
+    <!-- ========================================== -->
+    <section id="landing-pages" class="service-section bg-alt">
+        <h2 class="section-title reveal">المواقع التعريفية (Landing Pages)</h2>
+        <p class="section-subtitle reveal">مواقع بتصميم SaaS عصري للخدمات والأفراد تعكس احترافيتك.</p>
         
-        <div class="pricing-grid">
-            <!-- باقة الأفراد -->
+        <!-- أعمال المواقع التعريفية -->
+        <h3 class="sub-heading reveal">أعمالنا في المواقع</h3>
+        <div class="projects-grid">
+            <div class="project-card reveal" style="max-width: 400px;" onclick="window.open('https://abaad-six.vercel.app/', '_blank')">
+                <div class="img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="أبعاد العقارية" class="project-img-preview">
+                </div>
+                <div class="project-info">
+                    <h3>أبعاد العقارية</h3>
+                    <p>موقع تعريفي احترافي (SaaS Style) <br><span style="font-size: 0.9rem; color: var(--primary-orange);">اضغط لزيارة الموقع الحي ↗</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- باقات المواقع التعريفية -->
+        <h3 class="sub-heading reveal">باقات المواقع التعريفية</h3>
+        <div class="pricing-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+            
             <div class="pricing-card reveal">
                 <div class="price-box">
                     <h3>باقة الأفراد</h3>
@@ -573,10 +629,9 @@
                     <li>استضافة سحابية سريعة وآمنة (بدون رسوم سنوية)</li>
                     <li>حجز وربط النطاق (Domain) مجاناً للسنة الأولى</li>
                 </ul>
-                <a href="https://api.whatsapp.com/send/?phone=966549478263&text=أهلاً، مهتم بطلب %22باقة الأفراد%22 لإنشاء موقعي الشخصي" target="_blank" class="btn" style="width: 100%; justify-content: center;">اطلب الباقة الآن</a>
+                <a href="https://api.whatsapp.com/send/?phone=966549478263&text=أهلاً، مهتم بطلب %22باقة الأفراد%22 لإنشاء موقعي الشخصي" target="_blank" class="btn" style="width: 100%; justify-content: center;">اطلب الباقة</a>
             </div>
 
-            <!-- باقة المكاتب -->
             <div class="pricing-card premium reveal">
                 <div class="price-box">
                     <h3>باقة المكاتب</h3>
@@ -590,7 +645,7 @@
                     <li>استضافة سحابية سريعة وآمنة (بدون رسوم سنوية)</li>
                     <li>حجز وربط النطاق (Domain) مجاناً للسنة الأولى</li>
                 </ul>
-                <a href="https://api.whatsapp.com/send/?phone=966549478263&text=أهلاً، مهتم بطلب %22باقة المكاتب%22 لإنشاء موقع مؤسستي" target="_blank" class="btn" style="width: 100%; justify-content: center;">اطلب الباقة الآن</a>
+                <a href="https://api.whatsapp.com/send/?phone=966549478263&text=أهلاً، مهتم بطلب %22باقة المكاتب%22 لإنشاء موقع مؤسستي" target="_blank" class="btn" style="width: 100%; justify-content: center;">اطلب الباقة</a>
             </div>
         </div>
     </section>
@@ -633,7 +688,6 @@
 
     <!-- سكربتات تفاعلية -->
     <script>
-        // حركة ظهور العناصر عند النزول بالماوس
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
@@ -648,7 +702,6 @@
         window.addEventListener("scroll", reveal);
         reveal();
 
-        // التمرير السلس للروابط
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -656,13 +709,11 @@
             });
         });
 
-        // فتح وإغلاق معرض الصور 
         const modal = document.getElementById("imageModal");
         const container = document.getElementById("modalImagesContainer");
 
         function openGallery(imageUrlsArray) {
             container.innerHTML = ""; 
-            
             imageUrlsArray.forEach(url => {
                 let img = document.createElement("img");
                 img.src = url; 
@@ -671,7 +722,6 @@
                 };
                 container.appendChild(img);
             });
-
             modal.style.display = "block";
             document.body.style.overflow = "hidden";
         }
